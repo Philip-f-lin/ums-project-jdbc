@@ -2,12 +2,17 @@ package com.linphilip.springboot.dao.impl;
 
 import com.linphilip.springboot.dao.UserDao;
 import com.linphilip.springboot.dto.UserQueryParams;
+import com.linphilip.springboot.dto.UserRequest;
 import com.linphilip.springboot.model.User;
 import com.linphilip.springboot.rowmapper.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +44,47 @@ public class UserDaoImpl implements UserDao {
         List<User> userList = namedParameterJdbcTemplate.query(sql, map, new UserRowMapper());
 
         return userList;
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        String sql = "SELECT id, username, password, nickname, email," +
+                " phone, address, create_time " +
+                "FROM user WHERE id = :id";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+
+        List<User> userList = namedParameterJdbcTemplate.query(sql, map, new UserRowMapper());
+        if(userList.size() > 0){
+            return userList.get(0);
+        }else {
+            return null;
+        }
+
+    }
+
+    @Override
+    public Integer createUser (UserRequest userRequest) {
+        String sql = "INSERT INTO user (username, nickname, email, phone, address, create_time) " +
+                "VALUES (:username, :nickname, :email, :phone, :address, :createTime)";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("username", userRequest.getUsername());
+        map.put("nickname", userRequest.getNickname());
+        map.put("email", userRequest.getEmail());
+        map.put("phone", userRequest.getPhone());
+        map.put("address", userRequest.getAddress());
+
+        map.put("createTime", new Date());
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(map), keyHolder);
+
+        int id = keyHolder.getKey().intValue();
+
+        return id;
     }
 
     @Override

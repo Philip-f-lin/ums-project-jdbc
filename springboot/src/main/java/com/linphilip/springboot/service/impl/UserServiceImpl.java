@@ -2,6 +2,7 @@ package com.linphilip.springboot.service.impl;
 
 import com.linphilip.springboot.dao.UserDao;
 import com.linphilip.springboot.dto.UserQueryParams;
+import com.linphilip.springboot.dto.UserRequest;
 import com.linphilip.springboot.model.User;
 import com.linphilip.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsers(UserQueryParams userQueryParams) {
         return userDao.getUsers(userQueryParams);
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        return userDao.getUserById(id);
+    }
+
+    @Override
+    public Integer createUser(UserRequest userRequest){
+        return userDao.createUser(userRequest);
     }
 
     @Override

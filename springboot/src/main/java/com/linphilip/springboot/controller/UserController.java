@@ -1,13 +1,17 @@
 package com.linphilip.springboot.controller;
 
 import com.linphilip.springboot.dto.UserQueryParams;
+import com.linphilip.springboot.dto.UserRequest;
 import com.linphilip.springboot.model.User;
 import com.linphilip.springboot.service.UserService;
 import com.linphilip.springboot.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Validated
@@ -17,8 +21,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-
 
     @GetMapping("/page")
     public Page<User> getUsers(
@@ -60,5 +62,25 @@ public class UserController {
         page.setResults(userList);
 
         return page;
+    }
+
+    @GetMapping("/users/{id}")
+    public User getUser(@PathVariable Integer id){
+        User user = userService.getUserById(id);
+
+        if(user != null){
+            return user;
+        }else {
+            return null;
+        }
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<User> createUser(@RequestBody @Valid UserRequest userRequest){
+        Integer id = userService.createUser(userRequest);
+
+        User user = userService.getUserById(id);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 }
