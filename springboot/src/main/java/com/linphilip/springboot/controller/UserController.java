@@ -16,7 +16,7 @@ import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -81,9 +81,17 @@ public class UserController {
     @PostMapping("/save")
     public boolean saveUser(@RequestBody @Valid UserRequest userRequest){
         return userService.saveUser(userRequest);
-
     }
 
+    @DeleteMapping("/{id}")
+    public boolean deleteUser(@PathVariable Integer id){
+        return userService.deleteUserById(id);
+    }
 
+    // 多個刪除
+    @PostMapping("/del/batch")
+    public boolean deleteBatch(@RequestBody List<Integer> ids) {
+        return userService.deleteBatchByIds(ids);
+    }
 
 }

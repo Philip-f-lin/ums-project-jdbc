@@ -20,4 +20,7 @@ public interface UserDao{
     void updateUser(UserRequest userRequest);
 
 
+    boolean deleteUserById(Integer id);
+
+    boolean deleteBatchByIds(List<Integer> ids);
 }

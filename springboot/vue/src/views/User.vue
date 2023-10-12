@@ -125,7 +125,7 @@ export default {
   },
   methods:{
     load() {
-      this.request.get("/user/page", {
+      this.request.get("/users/page", {
         params: {
           pageNum: this.pageNum,
           pageSize: this.pageSize,
@@ -150,7 +150,7 @@ export default {
       })*/
     },
     save(){
-      this.request.post("/user/save", this.form).then(res =>{
+      this.request.post("/users/save", this.form).then(res =>{
         if(res){
           this.$message.success("儲存成功")
           this.dialogFormVisible = false;
@@ -172,7 +172,7 @@ export default {
     },
     // 刪除
     del(id){
-      this.request.delete("/user/" + id).then(res =>{
+      this.request.delete("/users/" + id).then(res =>{
         if(res){
           this.$message.success("刪除成功")
           this.load()
@@ -187,7 +187,7 @@ export default {
     },
     delBatch(){
       let ids = this.multipleSelection.map(v => v.id) // 把object的陣列，變成裝著id的陣列 [{}, {}, {}] => [1, 2, 3]
-      this.request.post("/user/del/batch", ids).then(res =>{
+      this.request.post("/users/del/batch", ids).then(res =>{
         if(res){
           this.$message.success("多筆資訊刪除成功")
           this.load()

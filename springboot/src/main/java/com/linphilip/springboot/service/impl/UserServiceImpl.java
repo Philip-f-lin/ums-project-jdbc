@@ -43,4 +43,14 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public boolean deleteUserById(Integer id) {
+        return userDao.deleteUserById(id);
+    }
+
+    @Override
+    public boolean deleteBatchByIds(List<Integer> ids) {
+        return userDao.deleteBatchByIds(ids);
+    }
+
 }

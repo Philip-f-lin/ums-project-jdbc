@@ -117,6 +117,30 @@ public class UserDaoImpl implements UserDao {
         namedParameterJdbcTemplate.update(sql, map);
     }
 
+    @Override
+    public boolean deleteUserById(Integer id) {
+        String sql = "DELETE from user WHERE id = :id";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+
+        int i = namedParameterJdbcTemplate.update(sql, map);
+
+        return i > 0;
+    }
+
+    @Override
+    public boolean deleteBatchByIds(List<Integer> ids) {
+        String sql = "DELETE FROM user WHERE id IN (:ids)";
+
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        parameters.addValue("ids", ids);
+
+        int rowsAffected = namedParameterJdbcTemplate.update(sql, parameters);
+
+        return rowsAffected == ids.size();
+    }
+
     private String addFilteringSql(String sql, Map<String, Object> map, UserQueryParams userQueryParams){
         if (userQueryParams.getUsername() != null) {
             sql = sql + " AND username LIKE :username";

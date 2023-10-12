@@ -17,4 +17,8 @@ public interface UserService{
     Integer countUser(UserQueryParams userQueryParams);
 
     boolean saveUser(UserRequest userRequest);
+
+    boolean deleteUserById(Integer id);
+
+    boolean deleteBatchByIds(List<Integer> ids);
 }
