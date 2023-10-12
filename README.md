@@ -6,7 +6,7 @@
 
 • 使用 axios 與後端 RESTful API 串接  
 
-• 後端採 Controller 、 Service 、 Dao 三層式架構設計，透過 Mybatis / MybatisPlus 訪問MySQL資料庫
+• 後端採 Controller 、 Service 、 Dao 三層式架構設計，透過 Spring JDBC 訪問 MySQL 資料庫
 
 # 快速上手
 1、運行環境和所需工具
