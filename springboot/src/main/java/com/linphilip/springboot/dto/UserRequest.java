@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class UserRequest {
 
+    private Integer id;
+
     @NotNull
     private String username;
     @NotNull
@@ -17,6 +19,14 @@ public class UserRequest {
     private String phone;
     @NotNull
     private String address;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

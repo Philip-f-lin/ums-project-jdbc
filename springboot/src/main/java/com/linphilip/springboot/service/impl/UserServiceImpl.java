@@ -27,12 +27,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer createUser(UserRequest userRequest){
-        return userDao.createUser(userRequest);
-    }
-
-    @Override
     public Integer countUser(UserQueryParams userQueryParams) {
         return userDao.countUser(userQueryParams);
     }
+
+    @Override
+    public boolean saveUser(UserRequest userRequest) {
+        if(userRequest.getId() == null){
+            Integer i = userDao.createUser(userRequest);
+            return i > 0;
+        }else{
+            userDao.updateUser(userRequest);
+            return true;
+        }
+
+    }
+
 }

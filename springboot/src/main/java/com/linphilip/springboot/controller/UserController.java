@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // 查詢
     @GetMapping("/page")
     public Page<User> getUsers(
             // 查詢條件 Filtering
@@ -64,6 +65,7 @@ public class UserController {
         return page;
     }
 
+    // 單表查詢
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable Integer id){
         User user = userService.getUserById(id);
@@ -75,12 +77,13 @@ public class UserController {
         }
     }
 
+    // 新增、修改
     @PostMapping("/save")
-    public ResponseEntity<User> createUser(@RequestBody @Valid UserRequest userRequest){
-        Integer id = userService.createUser(userRequest);
+    public boolean saveUser(@RequestBody @Valid UserRequest userRequest){
+        return userService.saveUser(userRequest);
 
-        User user = userService.getUserById(id);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+
+
+
 }

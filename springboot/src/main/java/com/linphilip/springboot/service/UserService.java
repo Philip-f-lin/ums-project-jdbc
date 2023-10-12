@@ -14,7 +14,7 @@ public interface UserService{
 
     User getUserById(Integer id);
 
-    Integer createUser(UserRequest userRequest);
-
     Integer countUser(UserQueryParams userQueryParams);
+
+    boolean saveUser(UserRequest userRequest);
 }

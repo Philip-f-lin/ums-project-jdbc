@@ -16,4 +16,8 @@ public interface UserDao{
     Integer createUser(UserRequest userRequest);
 
     Integer countUser(UserQueryParams userQueryParams);
+
+    void updateUser(UserRequest userRequest);
+
+
 }

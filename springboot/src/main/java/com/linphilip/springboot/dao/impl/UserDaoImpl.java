@@ -101,6 +101,22 @@ public class UserDaoImpl implements UserDao {
         return total;
     }
 
+    @Override
+    public void updateUser(UserRequest userRequest) {
+        String sql = "UPDATE user SET username = :username, nickname = :nickname, email = :email," +
+                " phone = :phone, address = :address where id = :id";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",userRequest.getId());
+        map.put("username", userRequest.getUsername());
+        map.put("nickname", userRequest.getNickname());
+        map.put("email", userRequest.getEmail());
+        map.put("phone", userRequest.getPhone());
+        map.put("address", userRequest.getAddress());
+
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
     private String addFilteringSql(String sql, Map<String, Object> map, UserQueryParams userQueryParams){
         if (userQueryParams.getUsername() != null) {
             sql = sql + " AND username LIKE :username";
