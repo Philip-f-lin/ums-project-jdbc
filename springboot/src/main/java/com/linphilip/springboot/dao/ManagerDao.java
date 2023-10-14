@@ -7,4 +7,6 @@ public interface ManagerDao {
     boolean createManager(ManagerRegisterRequest managerRegisterRequest);
 
     Manager getManagerByUsername(String username);
+
+    Manager getManagerById(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.linphilip.springboot.service.impl;
 
 import com.linphilip.springboot.dao.ManagerDao;
+import com.linphilip.springboot.dto.ManagerLoginRequest;
 import com.linphilip.springboot.dto.ManagerRegisterRequest;
 import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.service.ManagerService;
@@ -24,5 +25,25 @@ public class ManagerServiceImpl implements ManagerService {
 
         // 創建帳號
         return managerDao.createManager(managerRegisterRequest);
+    }
+
+    @Override
+    public boolean login(ManagerLoginRequest managerLoginRequest) {
+        Manager manager = managerDao.getManagerByUsername(managerLoginRequest.getUsername());
+
+        if (manager == null){
+            return false;
+        }
+
+        if (manager.getPassword().equals(managerLoginRequest.getPassword())){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public Manager getManagerById(Integer id) {
+        return managerDao.getManagerById(id);
     }
 }

@@ -52,4 +52,22 @@ public class ManagerDaoImpl implements ManagerDao {
         }
 
     }
+
+    @Override
+    public Manager getManagerById(Integer id) {
+        String sql = "SELECT id, username, password, created_date, last_modified_date " +
+                "FROM manager WHERE id = :id";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+
+        List<Manager> managerList = namedParameterJdbcTemplate.query(sql, map, new ManagerRowMapper());
+
+        if (managerList.size() > 0){
+            return managerList.get(0);
+        }else {
+            return null;
+        }
+
+    }
 }
