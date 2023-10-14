@@ -7,6 +7,7 @@ import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
 
 @Component
 public class ManagerServiceImpl implements ManagerService {
@@ -23,6 +24,10 @@ public class ManagerServiceImpl implements ManagerService {
             return false;
         }
 
+        // 使用 MD5 生成密碼的雜湊值
+        String hashedPassword = DigestUtils.md5DigestAsHex(managerRegisterRequest.getPassword().getBytes());
+        managerRegisterRequest.setPassword(hashedPassword);
+
         // 創建帳號
         return managerDao.createManager(managerRegisterRequest);
     }
@@ -31,11 +36,17 @@ public class ManagerServiceImpl implements ManagerService {
     public boolean login(ManagerLoginRequest managerLoginRequest) {
         Manager manager = managerDao.getManagerByUsername(managerLoginRequest.getUsername());
 
+        // 檢查 manager 是否存在
         if (manager == null){
             return false;
         }
 
-        if (manager.getPassword().equals(managerLoginRequest.getPassword())){
+        // 使用 MD5 生成密碼的雜湊值
+        String hashedPassword = DigestUtils.md5DigestAsHex(managerLoginRequest.getPassword().getBytes());
+
+
+        // 比較密碼
+        if (manager.getPassword().equals(hashedPassword)){
             return true;
         }else {
             return false;
