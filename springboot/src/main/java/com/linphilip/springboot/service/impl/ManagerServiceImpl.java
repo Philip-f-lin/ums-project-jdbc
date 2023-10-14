@@ -5,12 +5,18 @@ import com.linphilip.springboot.dto.ManagerLoginRequest;
 import com.linphilip.springboot.dto.ManagerRegisterRequest;
 import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.service.ManagerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class ManagerServiceImpl implements ManagerService {
+
+    private final static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private ManagerDao managerDao;
@@ -33,12 +39,13 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public boolean login(ManagerLoginRequest managerLoginRequest) {
+    public Manager login(ManagerLoginRequest managerLoginRequest) {
         Manager manager = managerDao.getManagerByUsername(managerLoginRequest.getUsername());
 
         // 檢查 manager 是否存在
         if (manager == null){
-            return false;
+            log.warn("該 username: {} 尚未註冊", managerLoginRequest.getUsername());
+            return null;
         }
 
         // 使用 MD5 生成密碼的雜湊值
@@ -47,9 +54,10 @@ public class ManagerServiceImpl implements ManagerService {
 
         // 比較密碼
         if (manager.getPassword().equals(hashedPassword)){
-            return true;
+            return manager;
         }else {
-            return false;
+            log.warn("username: {} 的密碼不正確", managerLoginRequest.getUsername());
+            return null;
         }
     }
 

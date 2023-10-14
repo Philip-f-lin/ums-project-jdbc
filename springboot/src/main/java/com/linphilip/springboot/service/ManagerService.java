@@ -7,7 +7,7 @@ import com.linphilip.springboot.model.Manager;
 public interface ManagerService {
     boolean register(ManagerRegisterRequest managerRegisterRequest);
 
-    boolean login(ManagerLoginRequest managerLoginRequest);
+    Manager login(ManagerLoginRequest managerLoginRequest);
 
     Manager getManagerById(Integer id);
 }

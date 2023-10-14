@@ -5,6 +5,8 @@ import com.linphilip.springboot.dto.ManagerRegisterRequest;
 import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -34,8 +36,15 @@ public class ManagerController{
 
     }
 
-    @PostMapping("login")
-    public boolean login(@RequestBody @Valid ManagerLoginRequest managerLoginRequest){
+    /*@PostMapping("login")
+    public Manager login(@RequestBody @Valid ManagerLoginRequest managerLoginRequest){
         return managerService.login(managerLoginRequest);
+    }*/
+
+    @PostMapping("login")
+    public ResponseEntity<Manager> login(@RequestBody @Valid ManagerLoginRequest managerLoginRequest){
+        Manager manager = managerService.login(managerLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(manager);
     }
 }

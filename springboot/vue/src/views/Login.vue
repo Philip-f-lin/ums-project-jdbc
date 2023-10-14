@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div style="margin: 200px auto; background-color: #fff; width: 350px; height: 300px; padding: 20px; border-radius: 10px">
-      <div style="margin: 20px 0; text-align: center; font-size: 24px">登錄</div>
+      <div style="margin: 20px 0; text-align: center; font-size: 24px">登 錄</div>
       <el-form :model="user" :rules="rules" ref="userForm">
         <el-form-item prop="username">
           <el-input size="medium" style="margin: 10px 0" prefix-icon="el-icon-user" v-model="user.username"></el-input>
@@ -11,7 +11,7 @@
         </el-form-item>
         <el-form-item style="margin: 10px 0; text-align: right">
           <el-button type="primary" size="small" autocomplete="off" @click="login">登錄</el-button>
-          <el-button type="warning" size="small" autocomplete="off">註冊</el-button>
+          <el-button type="warning" size="small" autocomplete="off" @click="$router.push('/register')">註冊</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -45,10 +45,9 @@ export default {
               this.$message.error("使用者名稱或密碼錯誤")
             }else{
               this.$router.push("/user")
+              this.$message.success("登錄成功")
             }
           })
-        } else {
-          return false;
         }
       });
     }
