@@ -40,7 +40,7 @@ export default {
     login(){
       this.$refs['userForm'].validate((valid) => {
         if (valid) { // 表單檢驗成功
-          this.request.post("/user/login", this.user).then(res =>{
+          this.request.post("/managers/login", this.user).then(res =>{
             if(!res){
               this.$message.error("使用者名稱或密碼錯誤")
             }else{
