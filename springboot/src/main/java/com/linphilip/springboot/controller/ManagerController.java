@@ -1,7 +1,6 @@
 package com.linphilip.springboot.controller;
 
 import com.linphilip.springboot.dto.ManagerRegisterRequest;
-import com.linphilip.springboot.model.Manger;
 import com.linphilip.springboot.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

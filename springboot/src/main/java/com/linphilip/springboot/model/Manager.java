@@ -1,10 +1,13 @@
 package com.linphilip.springboot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
-public class Manger {
+public class Manager {
     private Integer id;
-    private String email;
+    private String username;
+    @JsonIgnore
     private String password;
     private Date created_date;
     private Date last_modified_date;
@@ -17,12 +20,12 @@ public class Manger {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
