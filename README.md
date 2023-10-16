@@ -67,12 +67,10 @@ npm run serve
 <img width="1353" alt="截圖 2023-10-02 下午9 57 10" src="https://github.com/Philip-f-lin/project/assets/133033495/244a4455-be4a-45f3-8132-9e7093955700">
 
 # 5. 註冊畫面
-![截圖 2023-10-16 下午9.49.44.png](..%2F%E6%88%AA%E5%9C%96%202023-10-16%20%E4%B8%8B%E5%8D%889.49.44.png)
+<img width="1426" alt="截圖 2023-10-16 下午9 49 44" src="https://github.com/Philip-f-lin/ums-project-jdbc/assets/133033495/56d75c8a-3b14-4599-844d-e6cd075f28c7">
 
 # 6. 登錄畫面
-![截圖 2023-10-16 下午9.49.28.png](..%2F%E6%88%AA%E5%9C%96%202023-10-16%20%E4%B8%8B%E5%8D%889.49.28.png)
-
-
+<img width="1429" alt="截圖 2023-10-16 下午9 49 28" src="https://github.com/Philip-f-lin/ums-project-jdbc/assets/133033495/b8a5874b-eee1-48a7-b866-8a596dae98e5">
 
 
 
