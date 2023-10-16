@@ -1,5 +1,5 @@
 # 個人專案 - 使用者管理系統
-採 SpringBoot + Vue 前後端分離的開發模式，這個系統提供了增、刪、改、查功能。  
+採 SpringBoot + Vue 前後端分離的開發模式，此系統提供使用者註冊、登錄，以及增、刪、改、查，等功能。 
 
 # 使用技術
 • 前端使用 Vue 框架，採 Element UI 套件  
@@ -23,7 +23,7 @@
 
 • 下載 project 並使用 IntelliJ 開啟  
 
-• 在你的 MtSQL 資料庫中，創建一個名稱為 project 的資料庫，並導入 user table 
+• 在你的 MySQL 資料庫中，創建一個名稱為 project 的資料庫，並導入 user table 
 
 • 修改 spring boot 中的 application.yml 配置文件，把 username 和 password 改為自己的  
 
@@ -65,6 +65,13 @@ npm run serve
 <img width="1355" alt="截圖 2023-10-02 下午9 54 00" src="https://github.com/Philip-f-lin/project/assets/133033495/1c3dd8ad-75d2-4874-b014-19a77aa6ba20">
 <img width="1351" alt="截圖 2023-10-02 下午9 54 39" src="https://github.com/Philip-f-lin/project/assets/133033495/beaf89d5-5517-44ff-a6a6-bb22fe5bde65">
 <img width="1353" alt="截圖 2023-10-02 下午9 57 10" src="https://github.com/Philip-f-lin/project/assets/133033495/244a4455-be4a-45f3-8132-9e7093955700">
+
+# 5. 註冊畫面
+![截圖 2023-10-16 下午9.49.44.png](..%2F%E6%88%AA%E5%9C%96%202023-10-16%20%E4%B8%8B%E5%8D%889.49.44.png)
+
+# 6. 登錄畫面
+![截圖 2023-10-16 下午9.49.28.png](..%2F%E6%88%AA%E5%9C%96%202023-10-16%20%E4%B8%8B%E5%8D%889.49.28.png)
+
 
 
 
