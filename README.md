@@ -42,8 +42,8 @@ npm run serve
 # 1. 查詢
 • 可以透過帳號、信箱、地址查詢  
 • 若沒有輸入，則全部查詢
-<img width="1352" alt="截圖 2023-10-02 下午10 13 15" src="https://github.com/Philip-f-lin/project/assets/133033495/36101373-c7b8-4fe7-afa3-0bcfc62f4994">
-<img width="1353" alt="截圖 2023-10-02 下午10 13 06" src="https://github.com/Philip-f-lin/project/assets/133033495/a85431ae-5a26-4d1d-b56a-5aa967145361">
+<img alt="271995120-36101373-c7b8-4fe7-afa3-0bcfc62f4994.png" src="..%2F271995120-36101373-c7b8-4fe7-afa3-0bcfc62f4994.png" width="1355"/>
+<img alt="271995134-a85431ae-5a26-4d1d-b56a-5aa967145361.png" src="..%2F271995134-a85431ae-5a26-4d1d-b56a-5aa967145361.png" width="1355"/>
 
 # 2. 刪除  
 • 單個刪除  
