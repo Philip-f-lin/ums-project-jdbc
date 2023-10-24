@@ -6,8 +6,6 @@ import com.linphilip.springboot.model.User;
 import com.linphilip.springboot.service.UserService;
 import com.linphilip.springboot.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

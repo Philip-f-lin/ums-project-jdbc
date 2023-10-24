@@ -1,7 +1,9 @@
 package com.linphilip.springboot.dao;
 
+import com.linphilip.springboot.dto.ManagerRegisterRequest;
 import com.linphilip.springboot.dto.UserQueryParams;
 import com.linphilip.springboot.dto.UserRequest;
+import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.model.User;
 import org.springframework.stereotype.Component;
 

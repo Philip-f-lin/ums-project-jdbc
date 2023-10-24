@@ -1,8 +1,8 @@
 package com.linphilip.springboot.service;
 
 
-import com.linphilip.springboot.dto.UserQueryParams;
-import com.linphilip.springboot.dto.UserRequest;
+import com.linphilip.springboot.dto.*;
+import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.model.User;
 
 import java.util.List;

@@ -1,9 +1,12 @@
 package com.linphilip.springboot.dao.impl;
 
 import com.linphilip.springboot.dao.UserDao;
+import com.linphilip.springboot.dto.ManagerRegisterRequest;
 import com.linphilip.springboot.dto.UserQueryParams;
 import com.linphilip.springboot.dto.UserRequest;
+import com.linphilip.springboot.model.Manager;
 import com.linphilip.springboot.model.User;
+import com.linphilip.springboot.rowmapper.ManagerRowMapper;
 import com.linphilip.springboot.rowmapper.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
